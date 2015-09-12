@@ -5,11 +5,12 @@ require_once __DIR__.'/vendor/autoload.php';
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 $app = new Silex\Application(); 
+if (!is_readable('/tmp/id')) {
+    file_put_contents('/tmp/id', random(100));
+}
 
 $app->get('/tests/application-un', function() use($app) { 
-    var_dump($_SERVER);
-    var_dump($_ENV);
-    return 'Hello '; 
+    return 'Application Un   ['.file_get_contents('/tmp/id').']; 
 }); 
 
 $app->get('/api-docs', function() use($app) { 

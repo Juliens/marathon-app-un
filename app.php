@@ -10,7 +10,7 @@ if (!is_readable('/tmp/id')) {
 }
 
 $app->get('/tests/application-un', function() use($app) { 
-    return 'Application Un   ['.file_get_contents('/tmp/id').']; 
+    return 'Application Un   ['.file_get_contents('/tmp/id').']'; 
 }); 
 
 $app->get('/api-docs', function() use($app) { 

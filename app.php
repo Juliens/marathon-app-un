@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 $app = new Silex\Application(); 
 if (!is_readable('/tmp/id')) {
-    file_put_contents('/tmp/id', random(100));
+    file_put_contents('/tmp/id', rand(100, 1));
 }
 
 $app->get('/tests/application-un', function() use($app) { 
